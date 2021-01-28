@@ -1,18 +1,20 @@
-$(document).ready(function() {
-    $("#presentDay").text(moment());
-    $(saveBtn).on("click", function() {
-    
-      var input = $(this).siblings(description).val();
-      var time = $(this).parent().attr(id);
+$(document).ready(function () {
+  $("#presentDay").text(moment());
+  $("saveBtn").on("click", function () {
 
-      localStorage.setItem(time, input)
+    var input = $(this).siblings(description).val();
+    console.log(input)
+    var time = $(this).parent().attr(id);
+    console.log(time)
+
+    localStorage.setItem(time, input)
   });
-
-  function colorOverlay(){
+console.log("hi")
+  function colorOverlay() {
 
     var presentTime = moment().hours();
 
-    $(time-block).each(function() {
+    $(time - block).each(function () {
       var newTime = parseInt($(this).attr(id).split("-")[1]);
 
       if (newTime < presentTime) {
@@ -27,25 +29,24 @@ $(document).ready(function() {
         $(this).removeClass("present");
         $(this).addClass("future");
       }
-  });
-}
+    })
+    $("#9-hour .description").val(localStorage.getItem('9-hour'));
 
-colorOverlay();
+    $("#10-hour .description").val(localStorage.getItem('10-hour'));
 
-$("#9-hour .description").val(localStorage.getItem('9-hour'));
+    $("#11-hour .description").val(localStorage.getItem('11-hour'));
 
-$("#10-hour .description").val(localStorage.getItem('10-hour'));
+    $("#12-hour .description").val(localStorage.getItem('12-hour'));
 
-$("#11-hour .description").val(localStorage.getItem('11-hour'));
+    $("#13-hour .description").val(localStorage.getItem('13-hour'));
 
-$("#12-hour .description").val(localStorage.getItem('12-hour'));
+    $("#14-hour .description").val(localStorage.getItem('14-hour'));
 
-$("#13-hour .description").val(localStorage.getItem('13-hour'));
+    $("#15-hour .description").val(localStorage.getItem('15-hour'));
 
-$("#14-hour .description").val(localStorage.getItem('14-hour'));
+    $("#16-hour .description").val(localStorage.getItem('16-hour'));
 
-$("#15-hour .description").val(localStorage.getItem('15-hour'));
-
-$("#16-hour .description").val(localStorage.getItem('16-hour'));
-
-$("#17-hour .description").val(localStorage.getItem('17-hour'));
+    $("#17-hour .description").val(localStorage.getItem('17-hour'));
+    colorOverlay();
+  }
+})
